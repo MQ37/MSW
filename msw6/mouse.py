@@ -17,11 +17,11 @@ def pos_distance(pos1, pos2):
     return math.sqrt( (x1-x2)**2 + (y1-y2)**2 )
 
 def get_seed(data):
-    hash = hashlib.sha256(data.encode("utf-8")).hexdigest()
+    _hash = hashlib.sha256(data.encode("utf-8")).hexdigest()
 
     seed = 1
-    for hex in zip(hash[::2], hash[1::2]):
-        shex = "%s%s" % hex
+    for _hex in zip(_hash[::2], _hash[1::2]):
+        shex = "%s%s" % _hex
         dec = int( shex, 16 )
         for char in shex:
           dec *= ord(char)
@@ -30,7 +30,7 @@ def get_seed(data):
     return int(seed)
 
 input("Pohybujte náhodně kurzorem pro získání náhodných dat.\n\
-Stiskněte klávesu pro pokračování")
+Stiskněte klávesu enter pro pokračování")
 
 prev_pos = (0, 0)
 
